@@ -16,6 +16,10 @@
 		1D4BC733234E5B3A00AD3AA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D4BC731234E5B3A00AD3AA5 /* LaunchScreen.storyboard */; };
 		1D4BC73E234E5B3A00AD3AA5 /* ImageFunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4BC73D234E5B3A00AD3AA5 /* ImageFunTests.swift */; };
 		1D4BC749234E5B3A00AD3AA5 /* ImageFunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4BC748234E5B3A00AD3AA5 /* ImageFunUITests.swift */; };
+		1D4BC759234E62AA00AD3AA5 /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4BC758234E62AA00AD3AA5 /* ImageViewCell.swift */; };
+		1D4BC75B234E6DB800AD3AA5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4BC75A234E6DB800AD3AA5 /* ImagePicker.swift */; };
+		1D4BC75D234E6E9900AD3AA5 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4BC75C234E6E9900AD3AA5 /* ImagePickerController.swift */; };
+		1D4BC764234E7B1900AD3AA5 /* ImageWithAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4BC763234E7B1900AD3AA5 /* ImageWithAttributes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		1D4BC744234E5B3A00AD3AA5 /* ImageFunUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageFunUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D4BC748234E5B3A00AD3AA5 /* ImageFunUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFunUITests.swift; sourceTree = "<group>"; };
 		1D4BC74A234E5B3A00AD3AA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D4BC758234E62AA00AD3AA5 /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
+		1D4BC75A234E6DB800AD3AA5 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		1D4BC75C234E6E9900AD3AA5 /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		1D4BC763234E7B1900AD3AA5 /* ImageWithAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithAttributes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +112,12 @@
 				1D4BC724234E5B3800AD3AA5 /* AppDelegate.swift */,
 				1D4BC726234E5B3800AD3AA5 /* SceneDelegate.swift */,
 				1D4BC728234E5B3800AD3AA5 /* MasterViewController.swift */,
+				1D4BC763234E7B1900AD3AA5 /* ImageWithAttributes.swift */,
+				1D4BC75A234E6DB800AD3AA5 /* ImagePicker.swift */,
+				1D4BC758234E62AA00AD3AA5 /* ImageViewCell.swift */,
 				1D4BC72A234E5B3800AD3AA5 /* DetailViewController.swift */,
 				1D4BC72C234E5B3800AD3AA5 /* Main.storyboard */,
+				1D4BC75C234E6E9900AD3AA5 /* ImagePickerController.swift */,
 				1D4BC72F234E5B3900AD3AA5 /* Assets.xcassets */,
 				1D4BC731234E5B3A00AD3AA5 /* LaunchScreen.storyboard */,
 				1D4BC734234E5B3A00AD3AA5 /* Info.plist */,
@@ -264,7 +276,11 @@
 			files = (
 				1D4BC725234E5B3800AD3AA5 /* AppDelegate.swift in Sources */,
 				1D4BC727234E5B3800AD3AA5 /* SceneDelegate.swift in Sources */,
+				1D4BC764234E7B1900AD3AA5 /* ImageWithAttributes.swift in Sources */,
 				1D4BC729234E5B3800AD3AA5 /* MasterViewController.swift in Sources */,
+				1D4BC75B234E6DB800AD3AA5 /* ImagePicker.swift in Sources */,
+				1D4BC759234E62AA00AD3AA5 /* ImageViewCell.swift in Sources */,
+				1D4BC75D234E6E9900AD3AA5 /* ImagePickerController.swift in Sources */,
 				1D4BC72B234E5B3800AD3AA5 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,13 +455,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2F75ZYYZV5;
+				DEVELOPMENT_TEAM = R5PQPZARC5;
 				INFOPLIST_FILE = ImageFun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bonejarring.ImageFun;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sydpolk.ImageFun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -457,13 +474,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2F75ZYYZV5;
+				DEVELOPMENT_TEAM = R5PQPZARC5;
 				INFOPLIST_FILE = ImageFun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bonejarring.ImageFun;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sydpolk.ImageFun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

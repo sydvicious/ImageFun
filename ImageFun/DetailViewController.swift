@@ -10,15 +10,17 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var imageTitle: UILabel!
+    @IBOutlet weak var attributes: UITextView!
+    
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail = detailItem {
-            if let label = detailDescriptionLabel {
-                label.text = detail.description
-            }
+        
+        if let imageAttrs = imageWithAttributes {
+            image.image = imageAttrs.image
+            imageTitle.text = imageAttrs.title
+            attributes.text = attributes.text
         }
     }
 
@@ -28,7 +30,7 @@ class DetailViewController: UIViewController {
         configureView()
     }
 
-    var detailItem: NSDate? {
+    var imageWithAttributes: ImageWithAttributes? {
         didSet {
             // Update the view.
             configureView()
