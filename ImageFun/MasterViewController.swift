@@ -8,11 +8,12 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController, ImagePickerControllerDelegate {
+class MasterViewController: UITableViewController, ImagePickerControllerDelegate, DetailViewDelegate {
 
     var detailViewController: DetailViewController? = nil
     var images = [ImageWithAttributes]()
-
+    var imagesIndex: [ImageWithAttributes:Int] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -49,6 +50,7 @@ class MasterViewController: UITableViewController, ImagePickerControllerDelegate
                 controller.imageWithAttributes = imageWithAttributes
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
+                controller.delegate = self
                 detailViewController = controller
             }
         }
@@ -82,6 +84,12 @@ class MasterViewController: UITableViewController, ImagePickerControllerDelegate
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let imageWithAttributes = self.images[indexPath.row]
+            self.imagesIndex.removeValue(forKey: imageWithAttributes)
+            for i in (indexPath.row + 1)...(self.images.count - 1) {
+                let image = self.images[i]
+                self.imagesIndex[image] = i - 1
+            }
             images.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } 
@@ -94,8 +102,22 @@ class MasterViewController: UITableViewController, ImagePickerControllerDelegate
         
         let imageWithAttributes = ImageWithAttributes(image: image, title: "foo", attributes: "")
         self.images.append(imageWithAttributes)
+        self.imagesIndex[imageWithAttributes] = self.images.count - 1
         self.tableView.reloadData()
     }
-
+    
+    func setItemTitle(_ imageWithAttributes: ImageWithAttributes, title: String) {
+        let row = self.imagesIndex[imageWithAttributes]
+        if let row = row {
+            let newImage = ImageWithAttributes(image: imageWithAttributes.image, title: title, attributes: imageWithAttributes.attributes)
+            self.images[row] = newImage
+            self.imagesIndex.removeValue(forKey: imageWithAttributes)
+            self.imagesIndex[newImage] = row
+            let indexPath = IndexPath(item: row, section: 0)
+            var indexPaths = [IndexPath]()
+            indexPaths.append(indexPath)
+            self.tableView.reloadRows(at: indexPaths, with: .fade)
+        }
+    }
 }
 
