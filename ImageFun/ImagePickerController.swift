@@ -57,9 +57,7 @@ class ImagePickerController: UIViewController {
     }
     
     @IBAction func takePhoto(_ sender: Any) {
-        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
-            self.imagePicker.presentPicker(for: .camera)
-        }
+        self.imagePicker.presentPicker(for: .camera)
     }
 }
 

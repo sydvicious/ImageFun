@@ -27,7 +27,7 @@ open class ImagePicker: NSObject {
         self.delegate = delegate
     
         self.pickerController.delegate = self
-        self.pickerController.allowsEditing = true
+        self.pickerController.allowsEditing = false
         self.pickerController.mediaTypes = ["public.image"]
     }
     
@@ -36,7 +36,11 @@ open class ImagePicker: NSObject {
             self.delegate?.didSelect(image: nil)
             return
         }
-        
+        pickerController.sourceType = type
+        if type == .camera {
+            pickerController.cameraCaptureMode = .photo
+            pickerController.modalPresentationStyle = .fullScreen
+        }
         self.presentationController?.present(self.pickerController, animated: true)
     }
         
@@ -55,7 +59,7 @@ extension ImagePicker: UIImagePickerControllerDelegate {
 
     public func imagePickerController(_ picker: UIImagePickerController,
                                       didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        guard let image = info[.editedImage] as? UIImage else {
+        guard let image = info[.originalImage] as? UIImage else {
             return self.pickerController(picker, didSelect: nil)
         }
         self.pickerController(picker, didSelect: image)
